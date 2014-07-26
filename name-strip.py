@@ -1,3 +1,8 @@
+# Copyright (c) 2014 Parker Harris Emerson
+# Subject to the MIT License; please see file LICENSE.
+
+# Replaces all instances of a user's name with [REDACTED], or vis a versa.
+
 import sys, fileinput, getopt
 
 def main(argv):
@@ -24,6 +29,10 @@ def main(argv):
       redact_option = True
     elif opt in ("-n", "--name"):
       redact_option = False
+  if redact_file == "":
+    print("No file entered. Program terminating.")
+    sys.exit()
+
   print("Input file is", redact_file)
 
   if redact_option:
